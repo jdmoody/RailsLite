@@ -12,21 +12,21 @@ describe Route do
       index_route = Route.new(Regexp.new("^/users$"), :get, "x", :x)
       req.stub(:path) { "/users" }
       req.stub(:request_method) { :get }
-      index_route.matches?(req).should be_true
+      index_route.matches?(req).should eq true
     end
 
     it "matches regular expression with capture" do
       index_route = Route.new(Regexp.new("^/users/(?<id>\\d+)$"), :get, "x", :x)
       req.stub(:path) { "/users/1" }
       req.stub(:request_method) { :get }
-      index_route.matches?(req).should be_true
+      index_route.matches?(req).should eq true
     end
 
     it "correctly doesn't match regular expression with capture" do
       index_route = Route.new(Regexp.new("^/users/(?<id>\\d+)$"), :get, "UsersController", :index)
       req.stub(:path) { "/statuses/1" }
       req.stub(:request_method) { :get }
-      index_route.matches?(req).should be_false
+      index_route.matches?(req).should be_falsy
     end
   end
 

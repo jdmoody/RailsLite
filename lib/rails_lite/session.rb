@@ -8,7 +8,6 @@ class Session
     my_cookie = req.cookies.select do |cookie|
       cookie.name == '_rails_lite_app'
     end
-    # debugger
     @cookie_hash = (my_cookie.empty? ? {} : JSON.parse(my_cookie.first.value))
   end
 

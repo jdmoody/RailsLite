@@ -25,6 +25,7 @@ class ControllerBase
     @res.content_type = type
     @already_rendered = true
     session.store_session(@res)
+    flash.store_flash(@res)
   end
 
   # helper method to alias @already_rendered
@@ -39,6 +40,7 @@ class ControllerBase
     @res.status = 302
     @already_rendered = true
     session.store_session(@res)
+    flash.store_flash(@res)
   end
 
   # use ERB and binding to evaluate templates
@@ -53,6 +55,10 @@ class ControllerBase
   # method exposing a `Session` object
   def session
     @session ||= Session.new(@req)
+  end
+  
+  def flash
+    @flash = Flash.new(@req)
   end
 
   # use this with the router to call action_name (:index, :show, :create...)
