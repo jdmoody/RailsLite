@@ -1,17 +1,11 @@
-# Using the specs
-Some specs have been written to guide you towards the lite :) There are rspec
-specs in the `spec` directory and ruby code for you to test with in the `test`
-directory.
+# Rails Lite
 
-The specs were written with _you_ in mind ;) Run them in this order they should
-generally follow the progression of the project.
+## Description
+Rails Lite implements many of the Controller and View features of Rails. To see my implementation of Model features, check out [HactiveRecord](https://github.com/jdmoody/HactiveRecord).
 
-## Suggested Order
-0.  `rspec spec/controller_base_spec.rb`
-0.  `rspec spec/session_spec.rb`
-0.  `rspec spec/params_spec.rb`
-0.  `rspec spec/router_spec.rb`
-0.  `rspec spec/integration_spec.rb`
-
-If you're feeling extra fancy you can run [guard](https://github.com/guard/guard)! 
-just type `guard`
+## Features
+* Uses WEBrick server to receive HTTP requests and send back responses
+* A ControllerBase able to redirect_to given urls and render specified templates
+* Stores a session cookie
+* Holds a params hash similar to Rails
+* Router object that matches URL's to controller actiosn
